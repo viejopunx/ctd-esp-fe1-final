@@ -1,5 +1,9 @@
+import { fetchAllPersonajes } from '../../hooks/api';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { getAllPersonajes } from '../../redux/personajesSlice';
 import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
+import useEffect from 'react'
 
 /**
  * Grilla de personajes para la pagina de inicio
@@ -10,6 +14,10 @@ import TarjetaPersonaje from './tarjeta-personaje.componente';
  * @returns un JSX element 
  */
 const GrillaPersonajes = () => {
+
+    const dispatch = useAppDispatch();
+    const personajes = useAppSelector(state => state.personajes);
+    console.log(dispatch(getAllPersonajes))
 
     return <div className="grilla-personajes">
        <TarjetaPersonaje />
